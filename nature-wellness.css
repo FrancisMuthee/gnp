@@ -185,7 +185,7 @@ p {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: url('/images/moist\ pic.jpg') center/cover no-repeat;
+    background: url('/photos/moist\ pic.webp') center/cover no-repeat;
     background-attachment: fixed;
     overflow: hidden;
 }
