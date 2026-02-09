@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gura Nature Paradise - Let's connect</title>
+    
+    <!-- Local CSS -->
+    <link rel="stylesheet" href="/css/contact.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome CDN (Version 6.4.0) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="/ images/logo.png" type="image/png">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Book your nature wellness hike at Gura Nature Paradise. Custom hiking experiences with dietary preferences, accommodation, and monthly themed hikes.">
+    <meta name="keywords" content="nature hikes, wellness retreat, hiking Kenya, Gura Nature Paradise, eco-tourism, adventure">
+    
+    <!-- For older browsers that don't support SVG favicons -->
+    <link rel="icon" type="image/png" href="/images/logo.png">
+</head>
+<body>
+    <!-- WhatsApp Floating Icon -->
+    <a href="" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Contact us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <span class="logo-icon"><img 
+  src="/images/logo.png" 
+  alt="Gura Nature Paradise Logo"
+  style="max-width:180px; width:100%; height:auto;"
+>
+</span>
+                    <h1>Gura Nature Paradise events</h1>
+                </div>
+                <div class="tagline">
+                    <p>A paradise of nature, restoration, and wellness</p>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <div class="content-grid">
+                <!-- Left Column - Form -->
+                <div class="form-section">
+                    <div class="section-header">
+                        <h2><i class="fas fa-mountain"></i> Plan Your Wellness Hike</h2>
+                        <p class="subtitle">Share about your preferred experience with us</p>
+                    </div>
+
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name *</label>
+                            <input type="text" id="name" name="name" required placeholder="Your full name">
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="Key in your email address">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone"><i class="fas fa-phone"></i> Phone (Optional)</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+1 (234) 567-890">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="hikeMonth"><i class="fas fa-calendar-alt"></i> Your Preferred Hike Month *</label>
+                            <select id="hikeMonth" name="hikeMonth" required>
+                                <option value="">Choose a monthly hike...</option>
+                                <% monthlyHikes.forEach(hike => { %>
+                                    <option value="<%= hike.month %>: <%= hike.name %>"><%= hike.month %>: <%= hike.name %> (<%= hike.difficulty %> - <%= hike.spots %> spots)</option>
+                                <% }); %>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="participants"><i class="fas fa-users"></i> Number of Participants *</label>
+                            <div class="participants-selector">
+                                <button type="button" class="participant-btn" data-value="1">1</button>
+                                <button type="button" class="participant-btn" data-value="2">2</button>
+                                <button type="button" class="participant-btn" data-value="3">3</button>
+                                <button type="button" class="participant-btn" data-value="4">4</button>
+                                <button type="button" class="participant-btn" data-value="5">5</button>
+                                <button type="button" class="participant-btn" data-value="6">6+</button>
+                                <input type="hidden" id="participants" name="participants" value="1" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label><i class="fas fa-utensils"></i> Dietary Preferences *</label>
+                            <div class="dietary-options">
+                                <% dietaryOptions.forEach(option => { %>
+                                    <div class="option-chip">
+                                        <input type="radio" id="diet-<%= option.toLowerCase().replace(' ', '-') %>" name="dietary" value="<%= option %>" <%= option === 'No Restrictions' ? 'checked' : '' %>>
+                                        <label for="diet-<%= option.toLowerCase().replace(' ', '-') %>"><%= option %></label>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="accommodation"><i class="fas fa-bed"></i> Accommodation Preference *</label>
+                            <select id="accommodation" name="accommodation" required>
+                                <option value="">Select accommodation type...</option>
+                                <% accommodationOptions.forEach(option => { %>
+                                    <option value="<%= option %>"><%= option %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message"><i class="fas fa-comment"></i> Additional Notes or Special Requests</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about any special requirements, expectations, or questions you have..."></textarea>
+                        </div>
+
+                        <div class="form-footer">
+                            <button type="submit" class="submit-btn">
+                                <i class="fas fa-paper-plane"></i> Submit Inquiry
+                            </button>
+                            <p class="form-note">We'll respond as soon as possible with availability and detailed information</p>
+                        </div>
+                    </form>
+
+                    <div id="responseMessage" class="response-message"></div>
+                </div>
+
+                <!-- Right Column - Info -->
+                <div class="info-section">
+                    <div class="info-card">
+                        <h3><i class="fas fa-info-circle"></i> How It Works</h3>
+                        <ol class="process-steps">
+                            <li><strong>Submit Your Preferences</strong> - Fill out this form with your details</li>
+                            <li><strong>Personalized Planning</strong> - We'll create a customized itinerary based on your preferences</li>
+                            <li><strong>Confirmation & Details</strong> - Receive a detailed plan and confirmation as soon as possible</li>
+                            <li><strong>Prepare for Your Hike</strong> - Get packing lists, meeting points, and tips</li>
+                        </ol>
+                    </div>
+
+                    <div class="info-card">
+                        <h3><i class="fas fa-star"></i> Monthly Hike Themes</h3>
+                        <div class="monthly-hikes">
+                            <% monthlyHikes.forEach(hike => { %>
+                                <div class="hike-item <%= hike.month === currentMonth ? 'current-month' : '' %>">
+                                    <div class="hike-month"><%= hike.month %></div>
+                                    <div class="hike-details">
+                                        <h4><%= hike.name %></h4>
+                                        <div class="hike-meta">
+                                            <span class="difficulty <%= hike.difficulty.toLowerCase() %>"><%= hike.difficulty %></span>
+                                            <span class="spots"><i class="fas fa-user-friends"></i> <%= hike.spots %> spots</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            <% }); %>
+                        </div>
+                        <p class="hike-note">* Current month's hike is highlighted</p>
+                    </div>
+
+                    <div class="info-card contact-info">
+                        <h3><i class="fas fa-address-book"></i> Contact Information</h3>
+                        <div class="contact-details">
+                            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> <a href="mailto:guranatureparadise@gmail.com">guranatureparadise@gmail.com</a></p>
+                            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> <a href="tel:+254119406267">+254119406267</a></p>
+                            <p><i class="fas fa-clock"></i> <strong>Response Time:</strong> Instantly</p>
+                            <p><i class="fas fa-map-marker-alt"></i> <strong>Based in:</strong> Gura, Nyeri, Kenya</p>
+                        </div>
+                        
+                        <div class="email-note">
+                            <h4><i class="fas fa-shield-alt"></i> Secure Communication</h4>
+                            <p>All communication is handled via encrypted email.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-icon"><img 
+                src="/images/logo.png" 
+                alt="Gura Nature Paradise Logo"
+                style="max-width:180px; width:100%; height:auto;">
+
+</span>
+                    <h3>Gura Nature Paradise</h3>
+                    <p>Adventures in Nature since 2018</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#"><i class="fas fa-lock"></i> Privacy Policy</a>
+                    <a href="#"><i class="fas fa-file-contract"></i> Terms & Conditions</a>
+                    <a href="#"><i class="fas fa-question-circle"></i> FAQ</a>
+                </div>
+                <div class="footer-social">
+                    <p>Connect with us:</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Gura Nature Paradise. All rights reserved. | Designed with <i class="fas fa-heart" style="color: #e74c3c;"></i> for nature lovers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/contact.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+# ================================
+# GURA NATURE PARADISE
+# ================================
+
+# Node.js dependencies
+node_modules/
+npm-debug.log*
+package-lock.json  # Keep if you want reproducible installs
+
+# Environment variables (CRITICAL!)
+.env
+.env.*
+!.env.example  # Keep example file
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+temp/
+tmp/
+
+# User uploads (if your form accepts file uploads)
+uploads/
+public/uploads/  # If you create this later
+
+# SSL certificates
+ssl/
+*.pem
+*.key
+
+# Build artifacts (if you add build step later)
+dist/
+build/
+.cache/
+
+# Email storage (if you save emails locally)
+.eml
+sent_emails/
+
+# Your photos folder (if it contains development images)
+# photos/  # UNCOMMENT if photos are development-only
+# If photos are part of the website, KEEP them tracked

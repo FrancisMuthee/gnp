@@ -1,0 +1,49 @@
+{
+  "name": "gura-nature-paradise",
+  "version": "1.0.0",
+  "description": "Gura Nature Paradise - A paradise of  Nature, Restoration and Wellness",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",                    
+    "dev": "nodemon server.js",                  
+    "setup": "mkdir -p public/css public/js public/images views", 
+    "test": "echo \"No tests specified\" && exit 0" 
+  },
+  "keywords": [
+    "nature",
+    "Gura",
+    "hiking",
+    "wellness",
+    "kenya",
+    "adventure",
+    "booking",
+    "contact-form",
+    "email"
+  ],
+  "author": "Gura Nature Paradise Team",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.6",                   
+    "dotenv": "^17.2.3",                
+    "ejs": "^4.0.1",                    
+    "express": "^5.2.1",               
+    "express-rate-limit": "^8.2.1",     
+    "helmet": "^8.1.0",                 
+    "nodemailer": "^8.0.0"              
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"               
+  },
+  "engines": {
+    "node": ">=24.12.0",                
+    "npm": ">=11.6.2"               
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/francismuthee/gnp.git"
+  },
+  "bugs": {
+    "url": "https://github.com/francismuthee/gnp/issues"
+  },
+  "homepage": "https://guranatureparadise.com"
+}
