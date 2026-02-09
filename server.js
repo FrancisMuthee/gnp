@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 // ============== DATA SECTION (MUST COME FIRST) ==============
 // Monthly hikes data
 const monthlyHikes = [
-  { month: 'January', name: 'Winter Forest Therapy', difficulty: 'Easy', spots: 75 },
+  { month: 'January', name: 'Cool Breezing', difficulty: 'Easy', spots: 75 },
   { month: 'February', name: 'Couples Edition', difficulty: 'Moderate', spots: 100 },
   { month: 'March', name: 'Environment Conservation', difficulty: 'Easy', spots: 'unlimited' },
   { month: 'April', name: 'Waterfall Wellness Retreat', difficulty: 'Moderate', spots: 'unlimited' },
@@ -152,37 +152,37 @@ app.post('/submit', async (req, res) => {
     const clientMailOptions = {
       from: process.env.EMAIL_USER,
       to: email,
-      subject: 'Gura Nature Paradise Hike Inquiry - Confirmation',
+      subject: 'GuraNatureParadise Hike Inquiry - Confirmation',
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: linear-gradient(135deg, #2d5a27 0%, #4a7c59 100%); padding: 30px; text-align: center;">
             <h1 style="color: white; margin: 0;">Gura Nature Paradise</h1>
           </div>
           <div style="padding: 30px; background-color: #f9f9f9;">
-            <h2 style="color: #2d5a27;">Thank You, ${name}!</h2>
-            <p>We've received your inquiry for the <strong>${hikeMonth}</strong> hike.</p>
+            <h2 style="color: #2d5a27;">Hey, ${name}!</h2>
+            <p>We've received your bookings for the <strong>${hikeMonth}</strong> hike.</p>
             
             <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #4a7c59;">
-              <h3 style="color: #2d5a27; margin-top: 0;">Your Booking Details</h3>
+              <h3 style="color: #2d5a27; margin-top: 0;">Your booking details are as follows:</h3>
               <p><strong>Participants:</strong> ${participants}</p>
-              <p><strong>Dietary Preferences:</strong> ${dietary}</p>
+              <p><strong>Dietary preferences:</strong> ${dietary}</p>
               <p><strong>Accommodation:</strong> ${accommodation}</p>
               ${message ? `<p><strong>Your Message:</strong> ${message}</p>` : ''}
             </div>
             
-            <p>Let's review your request and contact you as soon as possible.</p>
+            <p>Your request is under review and contact you as soon as possible.</p>
             
             <div style="background-color: #e8f5e9; padding: 15px; border-radius: 5px; margin: 20px 0;">
               <p style="margin: 0;"><strong>Next Steps:</strong></p>
               <ol style="margin: 10px 0;">
-                <li>We'll verify hike availability for ${participants} participants</li>
+                <li>We'll verify hike availability for ${participants} participant(s)</li>
                 <li>Then, send you a detailed itinerary and packing list</li>
                 <li>And finally, provide payment instructions and options</li>
-                <li>Answer any questions you may have</li>
+                <li>Answer any queries you may have</li>
               </ol>
             </div>
             
-            <p>For immediate questions, you can reply to this email or contact us via WhatsApp.</p>
+            <p>For immediate questions, you can reply to this email or contact us via WhatsApp, 0.</p>
             
             <p>Kind regards,<br>Gura Nature Paradise Team</p>
           </div>
